@@ -1,0 +1,32 @@
+{
+      "name": "frontend",
+      "version": "1.0.0",
+      "description": "The frontend for a smart agricultural platform.",
+      "scripts": {
+        "build": "webpack",
+        "start": "webpack-dev-server",
+        "test": "jest"
+      },
+      "dependencies": {
+        "axios": "^0.21.0",
+        "redux": "^4.0.6",
+        "svelte": "^3.30.0"
+      },
+      "devDependencies": {
+        "@babel/core": "^7.12.3",
+        "@babel/preset-env": "^7.12.1",
+        "babel-eslint": "^10.1.0",
+        "babel-jest": "^26.3.0",
+        "eslint": "^7.14.0",
+        "jest": "^26.3.0",
+        "svelte-loader": "^2.13.0",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0"
+      },
+      "jest": {
+        "transform": {
+          "^.+\\.js$": "babel-jest"
+        }
+      }
+    }
