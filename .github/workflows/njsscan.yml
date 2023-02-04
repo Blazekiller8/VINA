@@ -29,10 +29,31 @@ jobs:
     runs-on: ubuntu-latest
     name: njsscan code scanning
     steps:
+    - name: Node Lint And Format
+      # You may pin to the exact commit or the version.
+      # uses: beauwilliams/run-node-formatter@e63ad780393e58e0469f1a1e0e8dc6ee889f2975
+      uses: beauwilliams/run-node-formatter@latest
     - name: Checkout the code
       uses: actions/checkout@v3
+    - name: Update Node Dependencies
+      # You may pin to the exact commit or the version.
+      # uses: neverendingqs/gh-action-node-update-deps@b667408f659fda465c63bcdcfdb6c2d0201fad6d
+      uses: neverendingqs/gh-action-node-update-deps@v1.7.0
+      with:
+        # Git user.email to use for the commit.
+        git-user-email: sivaraamtk@hotmail.com
+        # Git user.name to use for the commit.
+        git-user-name: Blazekiller8
+        # Set to 'yarn' to use yarn. Defaults to npm.
+        package-manager: 'yarn'
+        # A command to run before committing the dependency changes (e.g. npm run build).
+        pre-commit-script: yarn run build
     - name: Install dependencies
       run: yarn install
+    - name: PMD Node16
+      # You may pin to the exact commit or the version.
+      # uses: jcbenitezh/setup-pmd@268676dcd85d580f8fb6b4104ee97ec18b9dd45d
+      uses: jcbenitezh/setup-pmd@v1.000.000.003
     - name: nodejsscan scan
       id: njsscan
       uses: ajinabraham/njsscan-action@7237412fdd36af517e2745077cedbf9d6900d711
